@@ -16,6 +16,25 @@
 
   <script>
     const nameText = document.getElementById("text");
+
+    async function delayChangeText() {
+      async function changeText() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            nameText.textContent = "Michael"
+            resolve()
+          }, 1000);
+        })
+      }
+
+      function chegeColor() {
+        nameText.style.color = "red"
+      }
+      await changeText()
+      chegeColor()
+    }
+    delayChangeText()
+    
     const form = document.getElementById("myForm");
     form.addEventListener("submit", function (event) {
       event.preventDefault();
