@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E2E - Demo</title>
+</head>
+
+<body>
+  <div data-t="nameText">name: <span id="text">John</span></div>
+  <form id="myForm" action="">
+    <input type="text" id="name" value="" data-t="nameInput">
+    <button type="submit" data-t="submit">Submit</button>
+  </form>
+
+  <script>
+    const nameText = document.getElementById("text");
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = this.querySelector('#name')
+      nameText.textContent = name.value
+    });
+
+  </script>
+</body>
+
+</html>

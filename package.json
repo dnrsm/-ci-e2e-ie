@@ -1,0 +1,29 @@
+{
+  "name": "ci-e2e-ie",
+  "version": "1.0.0",
+  "main": "test.js",
+  "scripts": {
+    "test": "testcafe chrome:headless tests/e2e/test.js",
+    "test:ie": "testcafe ie tests/e2e/test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "^1.8.6",
+    "testcafe-reporter-xunit": "^2.1.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnrsm/ci-e2e-ie.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/dnrsm/ci-e2e-ie/issues"
+  },
+  "homepage": "https://github.com/dnrsm/ci-e2e-ie#readme",
+  "description": ""
+}

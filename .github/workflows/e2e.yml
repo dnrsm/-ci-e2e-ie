@@ -1,0 +1,26 @@
+name: e2e
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  setup:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          
+      - name: Install Dependencies
+        run: yarn
+
+      - name: E2E Test Chrome
+        run: yarn test
+
+      - name: E2E Test IE
+        run: yarn test:ie
+        env:
+          BROWSER: ie
