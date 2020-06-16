@@ -13,8 +13,21 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: yarn-cache
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm 
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
           
       - name: Install Dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: E2E Test Chrome
